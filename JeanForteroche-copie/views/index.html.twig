@@ -1,0 +1,17 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block content %}
+
+  <h1>Le nouveau roman de <strong>Jean Forteroche</strong><br/> - <br/><i class="fa fa-snowflake-o" aria-hidden="true"></i><em class="titre-roman">Billet simple pour l'Alaska</em><i class="fa fa-snowflake-o" aria-hidden="true"></i></h1>
+  <p class="lead">Bienvenue sur le nouveau roman de Jean Forteroche.<br/>Voici les derniers billets postés : </p>
+    
+    {% for billet in billets %}
+    <article>
+        <h2><a href="{{ path('billet', { 'id': billet.id }) }}">{{ billet.titre }}</a></h2>
+        <p>{{ billet.contenu }}</p>
+    </article>
+    {% endfor %}
+
+{% endblock %}
